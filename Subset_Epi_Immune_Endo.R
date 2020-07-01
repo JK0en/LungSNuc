@@ -38,9 +38,9 @@ ElbowPlot(ImmCellz, ndims = 50)
 ImmCellz <- FindNeighbors(ImmCellz, reduction = "harmony", dims = 1:40)
 ImmCellz <- FindClusters(ImmCellz, reduction = "harmony", resolution = 1.0)
 ImmCellz <- RunUMAP(ImmCellz, reduction = "harmony", dims = 1:40)
-DimPlot(ImmCellz, label = T, label.size = 3) + NoLegend()
+DimPlot(ImmCellz2, label = T, label.size = 3) + NoLegend()
 ImmCellz2.markers <- FindAllMarkers(ImmCellz2, only.pos = TRUE, min.pct = 0.10, logfc.threshold = 0.10)
-FeaturePlot(ImmCellz, c("Klr2b"), order = T)
+FeaturePlot(ImmCellz2, c("C1qc"), order = T)
 
 write.csv(ImmCellz.markers, file = "ImmCellz2markers.csv")
 
