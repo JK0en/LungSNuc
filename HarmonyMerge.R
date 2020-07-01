@@ -18,6 +18,7 @@ ElbowPlot(SNCombz, ndims = 50)
 SNCombz <- RunUMAP(SNCombz, reduction = "harmony", dims = 1:40)
 SNCombz <- FindNeighbors(SNCombz, reduction = "harmony", dims = 1:40) %>% FindClusters()
 DimPlot(SNCombz, group.by = c("stim3"), ncol = 3)
+SNCombzCl <- subset(SNCombz, subset = nFeature_RNA > 200 & nFeature_RNA < 2500)
 
 #Cell and nuc data merge
 
